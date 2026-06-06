@@ -1,0 +1,10 @@
+-r requirements-core.txt
+opencv-python>=4.9.0
+setuptools<82
+face-recognition-models>=0.3.0
+face-recognition>=1.3.0
+
+# dlib is required by face-recognition but cannot be built easily on Windows
+# without Visual Studio C++. On Windows, run:
+#   .\scripts\install-face-windows.ps1
+# That script downloads a prebuilt dlib wheel for your Python version.

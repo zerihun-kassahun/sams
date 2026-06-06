@@ -1,0 +1,29 @@
+# Render Blueprint — SAMS API (Option B: frontend on Netlify)
+# https://render.com/docs/blueprint-spec
+#
+# After deploy, set RENDER_API_URL on Netlify to this service's public URL.
+
+services:
+  - type: web
+    name: sams-api
+    runtime: python
+    rootDir: backend
+    plan: free
+    buildCommand: >-
+      pip install -r requirements-core.txt &&
+      pip install -r requirements-face.txt &&
+      pip install dlib &&
+      python seed.py
+    startCommand: gunicorn --bind 0.0.0.0:$PORT --workers 2 wsgi:app
+    healthCheckPath: /
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+      - key: FACE_TOLERANCE
+        value: "0.6"

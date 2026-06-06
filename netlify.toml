@@ -1,0 +1,12 @@
+# Netlify — SAMS frontend (Option B: API on Render + Neon Postgres)
+#
+# Required Netlify environment variable:
+#   RENDER_API_URL = https://your-service.onrender.com  (no trailing slash)
+
+[build]
+  base = "frontend"
+  command = "npm ci && npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"

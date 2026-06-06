@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+*.py[cod]
+.env
+*.db
+uploads/
+encodings/
+backups/
+wheels/
+.installed.cfg
+*.egg-info/

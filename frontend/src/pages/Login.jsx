@@ -90,7 +90,6 @@ export default function Login() {
           </button>
         </form>
 
-        <p className="hint">Demo: admin / instructor / depthead — password: password123</p>
         <p className="hint">
           <Link to="/">← Back to home</Link>
         </p>
